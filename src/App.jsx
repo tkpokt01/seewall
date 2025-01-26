@@ -4,8 +4,8 @@ import MessageList from "./components/MessageList";
 import retona16 from "./assets/retona16.png"; // Adjust the path as needed
 import "./styles.css";
 
-alert("Hello, World!");
-const contractAddress = "0xA3Bd22f59065D49dA39C7b99C3BD0D5f3DcA93F8"; // Replace with your contract address
+//alert("Hello, World!");
+const contractAddress = "0xa3bd22f59065d49da39c7b99c3bd0d5f3dca93f8"; // Replace with your contract address
 const abi = [
     {
         "anonymous": false,
@@ -105,6 +105,7 @@ const abi = [
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
+alert("Hello, World!");
 function App() {
     const [messages, setMessages] = useState([]);
 
