@@ -27,9 +27,8 @@ body, html {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: absolute; /* Makes the box float on top of the background */
-    top: 50%; /* Centers vertically */
+    top: 30%; 
     left: 50%; /* Centers horizontally */
-    transform: translate(-50%, -50%); /* Adjusts for exact centering */
     z-index: 1; /* Ensures the box is above the background */
 }
 
