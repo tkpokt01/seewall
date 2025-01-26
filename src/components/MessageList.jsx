@@ -22,4 +22,9 @@ MessageList.propTypes = {
     ).isRequired,
 };
 
+// Optional: Define default props
+MessageList.defaultProps = {
+    messages: [],
+};
+
 export default MessageList;
