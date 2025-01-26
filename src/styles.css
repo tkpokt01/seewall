@@ -1,4 +1,3 @@
-/* Reset default margin and padding */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,42 +5,38 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Background image styling */
 .background-image {
-    background-image: url('/assets/retona16.png'); /* Reference the image in the public folder */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the image */
-    position: fixed; /* Fix the background so it doesn't scroll */
+    background-image: url('/retona16.png');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Ensure the background is behind other content */
+    z-index: -1;
 }
 
-/* Styling for the messages box */
 .messages-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    margin: 50px auto; /* Center the box horizontally */
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 50px auto;
     padding: 20px;
-    width: 60%; /* Set the width of the box */
-    max-height: 70vh; /* Limit the height of the box */
-    overflow-y: auto; /* Add a scrollbar if content exceeds the height */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+    width: 60%;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling for the heading */
 .messages-box h1 {
     text-align: center;
     color: black;
 }
 
-/* Styling for individual messages */
 #messages {
     color: black;
 }
 
 #messages div {
-    margin-bottom: 10px; /* Add spacing between messages */
+    margin-bottom: 10px;
 }
