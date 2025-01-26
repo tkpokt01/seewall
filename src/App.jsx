@@ -113,19 +113,28 @@ function App() {
     useEffect(() => {
         async function initialize() {
             try {
-                // Initialize provider (no signer needed for read-only operations)
-                //const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
-                const provider = new ethers.BrowserProvider(window.ethereum);
-                
-                // Initialize contract
-                const contract = new ethers.Contract(contractAddress, abi, provider);
+                let provider;
 
-                // Load all messages
-                loadMessages(contract);
+                // Check if MetaMask is installed
+                if (window.ethereum) {
+                    // Request account access if needed
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
 
+                    // Initialize provider using MetaMask's injected provider
+                    provider = new ethers.BrowserProvider(window.ethereum);
+
+                    // Initialize contract
+                    const contract = new ethers.Contract(contractAddress, abi, provider);
+
+                    // Load all messages
+                    loadMessages(contract);
+                } else {
+                    // MetaMask is not installed
+                    setError("MetaMask is not installed. Please install MetaMask to use this application.");
+                }
             } catch (error) {
-                alert("Error initializing:", error);
-                setError("Failed to connect to the Ethereum network. Please check your connection.");
+                console.error("Error initializing:", error);
+                setError("Failed to connect to the Ethereum network. Please check your connection and ensure MetaMask is installed.");
             }
         }
 
