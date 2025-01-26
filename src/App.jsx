@@ -4,7 +4,7 @@ import MessageList from "./components/MessageList";
 import retona16 from "./assets/retona16.png"; // Adjust the path as needed
 import "./styles.css";
 
-
+alert("Hello, World!");
 const contractAddress = "0xA3Bd22f59065D49dA39C7b99C3BD0D5f3DcA93F8"; // Replace with your contract address
 const abi = [
     {
