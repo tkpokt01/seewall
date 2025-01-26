@@ -139,7 +139,8 @@ function App() {
             //alert("Message count:", messageCount);
             const loadedMessages = [];
 
-            for (let i = 0; i < messageCount; i++) {
+            //for (let i = 0; i < messageCount; i++) 
+            for (let i=messageCount-1; i>=0; i--){
                 const [sender, content] = await contract.getMessage(i);
                 loadedMessages.push({ sender, content });
             }
@@ -153,15 +154,13 @@ function App() {
 
 
     return (
-        //<div className="background-image" style={{ backgroundImage: `url(${retona16})` }}>
-        //<div className="background-image">
+       
             <div className="messages-box">
                 <h1>Wall Messages</h1>
                 {error && <div style={{ color: "red", textAlign: "center" }}>{error}</div>}
                 <MessageList messages={messages} />
             </div>
-        //</div>
-        //</div>
+       
     );
 }
 
