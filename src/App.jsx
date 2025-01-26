@@ -108,17 +108,21 @@ function App() {
     useEffect(() => {
         async function loadMessages() {
             try {
+                alert("Loading messages...");
                 const messageCount = await contract.getMessageCount();
+                alert("Message count: " + messageCount);
                 const loadedMessages = [];
 
                 for (let i = 0; i < messageCount; i++) {
                     const [sender, content] = await contract.getMessage(i);
                     loadedMessages.push({ sender, content });
                 }
+                
+                alert("Messages loaded: " + loadedMessages.length);
 
                 setMessages(loadedMessages);
             } catch (error) {
-                console.error("Error loading messages:", error);
+                alert("Error loading messages:", error);
             }
         }
 
