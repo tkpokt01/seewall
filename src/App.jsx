@@ -129,6 +129,8 @@ function App() {
 
                 // Load all messages
                 loadMessages(contract);
+                alert(loadMessages(contract));
+                
             } catch (error) {
                 alert("Error initializing:", error);
                 setError("Failed to connect to the Ethereum network. Please check your connection.");
