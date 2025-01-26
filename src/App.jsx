@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import MessageList from "./components/MessageList";
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
+
 import retona16 from "./assets/retona16.png"; // Adjust the path as needed
 import "./styles.css";
 
@@ -105,14 +105,15 @@ const abi = [
 
 
 
-const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
+//const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
+const provider = new ethers.BrowserProvider(window.ethereum)
 alert("Provider initialized:", provider);
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
 
 
 function App() {
-    <BrowserRouter>
+    
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
@@ -149,7 +150,6 @@ function App() {
         </div>
         </div>
     );
-    </BrowserRouter>
 }
 
 export default App;
