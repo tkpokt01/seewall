@@ -6,5 +6,6 @@ Yes indeed leaving or carving your message on OverProtocol is your historic even
 
 Guess what, it's time to see what OTHERS have carved on Over.
 
-- Image has been 'handmade' by Retona16 -
+
+Image has been 'handmade' by Retona16
 
