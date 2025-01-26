@@ -102,9 +102,10 @@ const abi = [
     }
 ];
 
-alert("Hello, World!");
+
 
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
+alert("Provider: " + provider);
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
 
