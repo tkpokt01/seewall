@@ -140,7 +140,7 @@ function App() {
             const loadedMessages = [];
 
             //for (let i = 0; i < messageCount; i++) 
-            for (let i = messageCount; i>0; i--){
+            for (let i = messageCount-1; i>=0; i--){
                 const [sender, content] = await contract.getMessage(i);
                 loadedMessages.push({ sender, content });
             }
