@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import MessageList from "./components/MessageList";
 
-import retona16 from "./assets/retona16.png"; // Adjust the path as needed
+//import retona16 from "./assets/retona16.png"; // Adjust the path as needed
 import "./styles.css";
 
 //alert("Hello, World!");
@@ -153,15 +153,15 @@ function App() {
 
 
     return (
-        <div className="background-image" style={{ backgroundImage: `url(${retona16})` }}>
-        <div className="background-image">
+        //<div className="background-image" style={{ backgroundImage: `url(${retona16})` }}>
+        //<div className="background-image">
             <div className="messages-box">
                 <h1>Wall Messages</h1>
                 {error && <div style={{ color: "red", textAlign: "center" }}>{error}</div>}
                 <MessageList messages={messages} />
             </div>
-        </div>
-        </div>
+        //</div>
+        //</div>
     );
 }
 
