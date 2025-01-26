@@ -5,12 +5,22 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.app-container {
+  background-image: url('./assets/retona16.png'); /* Directly reference the image */
+  background-size: contain; /* Maintain aspect ratio */
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* 85% of the viewport height */
+  width: 100vw; /* 85% of the viewport width */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px; /* Adjust as needed */
+  border: 2px solid #fff; /* Optional: Add a border for better visibility */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Optional: Add a shadow for better visibility */
+  
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
