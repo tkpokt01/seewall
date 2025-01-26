@@ -106,45 +106,63 @@ const abi = [
 
 
 //const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
-const provider = new ethers.BrowserProvider(window.ethereum)
+
 //alert("Provider initialized:", provider);
-const contract = new ethers.Contract(contractAddress, abi, provider);
+//const contract = new ethers.Contract(contractAddress, abi, provider);
 
 
 
 function App() {
-    
     const [messages, setMessages] = useState([]);
+    const [error, setError] = useState(null);
 
+    // Initialize provider and contract
     useEffect(() => {
-        async function loadMessages() {
+        async function initialize() {
             try {
-                //alert("Loading messages...");
-                const messageCount = await contract.getMessageCount();
-                //alert("Message count: " + messageCount);
-                const loadedMessages = [];
-
-                for (let i = 0; i < messageCount; i++) {
-                    const [sender, content] = await contract.getMessage(i);
-                    loadedMessages.push({ sender, content });
-                }
+                // Initialize provider (no signer needed for read-only operations)
+                //const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
+                const provider = new ethers.BrowserProvider(window.ethereum);
                 
-                //alert("Messages loaded: " + loadedMessages.length);
+                // Initialize contract
+                const contract = new ethers.Contract(contractAddress, abi, provider);
 
-                setMessages(loadedMessages);
+                // Load all messages
+                loadMessages(contract);
             } catch (error) {
-                alert("Error loading messages:", error);
+                alert("Error initializing:", error);
+                setError("Failed to connect to the Ethereum network. Please check your connection.");
             }
         }
 
-        loadMessages();
+        initialize();
     }, []);
+
+    // Fetch all messages from the contract
+    async function loadMessages(contract) {
+        try {
+            const messageCount = await contract.getMessageCount();
+            const loadedMessages = [];
+
+            for (let i = 0; i < messageCount; i++) {
+                const [sender, content] = await contract.getMessage(i);
+                loadedMessages.push({ sender, content });
+            }
+
+            setMessages(loadedMessages);
+        } catch (error) {
+            console.error("Error loading messages:", error);
+            setError("Failed to load messages. Please try again.");
+        }
+    }
+
 
     return (
         <div className="background-image" style={{ backgroundImage: `url(${retona16})` }}>
         <div className="background-image">
             <div className="messages-box">
                 <h1>Wall Messages</h1>
+                {error && <div style={{ color: "red", textAlign: "center" }}>{error}</div>}
                 <MessageList messages={messages} />
             </div>
         </div>
