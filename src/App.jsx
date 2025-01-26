@@ -107,7 +107,7 @@ const abi = [
 
 //const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
 const provider = new ethers.BrowserProvider(window.ethereum)
-alert("Provider initialized:", provider);
+//alert("Provider initialized:", provider);
 const contract = new ethers.Contract(contractAddress, abi, provider);
 
 
@@ -119,9 +119,9 @@ function App() {
     useEffect(() => {
         async function loadMessages() {
             try {
-                alert("Loading messages...");
+                //alert("Loading messages...");
                 const messageCount = await contract.getMessageCount();
-                alert("Message count: " + messageCount);
+                //alert("Message count: " + messageCount);
                 const loadedMessages = [];
 
                 for (let i = 0; i < messageCount; i++) {
@@ -129,7 +129,7 @@ function App() {
                     loadedMessages.push({ sender, content });
                 }
                 
-                alert("Messages loaded: " + loadedMessages.length);
+                //alert("Messages loaded: " + loadedMessages.length);
 
                 setMessages(loadedMessages);
             } catch (error) {
