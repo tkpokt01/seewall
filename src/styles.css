@@ -12,8 +12,8 @@ body, html {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh; /* 85% of the viewport height */
-    width: 100vw; /* 85% of the viewport width */
+    height: 90vh; /* 85% of the viewport height */
+    width: 90vw; /* 85% of the viewport width */
     z-index: -1;
 }
 
