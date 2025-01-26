@@ -8,7 +8,7 @@ body, html {
 
 /* Background image styling */
 .background-image {
-    background-image: url('/retona16.png'); /* Reference the image in the public folder */
+    background-image: url('/assets/retona16.png'); /* Reference the image in the public folder */
     background-size: cover; /* Ensure the image covers the entire background */
     background-position: center; /* Center the image */
     position: fixed; /* Fix the background so it doesn't scroll */
