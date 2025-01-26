@@ -140,10 +140,17 @@ function App() {
             const loadedMessages = [];
 
             //for (let i = 0; i < messageCount; i++) 
-            for (let i = messageCount-1; i>=0; i--){
+            //for (let i = messageCount-1; i>=0; i--){
+            //    const [sender, content] = await contract.getMessage(i);
+            //    loadedMessages.push({ sender, content });
+            //}
+            for (let i = 0; i < messageCount; i++) {
                 const [sender, content] = await contract.getMessage(i);
                 loadedMessages.push({ sender, content });
             }
+            
+            // Reverse the array to display newest first
+            loadedMessages.reverse();
 
             setMessages(loadedMessages);
         } catch (error) {
