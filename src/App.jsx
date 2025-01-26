@@ -105,13 +105,6 @@ const abi = [
 
 
 
-//const provider = new ethers.providers.JsonRpcProvider("https://rpc.overprotocol.com");
-
-//alert("Provider initialized:", provider);
-//const contract = new ethers.Contract(contractAddress, abi, provider);
-
-
-
 function App() {
     const [messages, setMessages] = useState([]);
     const [error, setError] = useState(null);
@@ -129,8 +122,7 @@ function App() {
 
                 // Load all messages
                 loadMessages(contract);
-                alert(loadMessages(contract));
-                
+
             } catch (error) {
                 alert("Error initializing:", error);
                 setError("Failed to connect to the Ethereum network. Please check your connection.");
@@ -144,7 +136,7 @@ function App() {
     async function loadMessages(contract) {
         try {
             const messageCount = await contract.getMessageCount();
-            alert("Message count:", messageCount);
+            //alert("Message count:", messageCount);
             const loadedMessages = [];
 
             for (let i = 0; i < messageCount; i++) {
