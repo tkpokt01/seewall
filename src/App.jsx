@@ -142,6 +142,7 @@ function App() {
     async function loadMessages(contract) {
         try {
             const messageCount = await contract.getMessageCount();
+            alert("Message count:", messageCount);
             const loadedMessages = [];
 
             for (let i = 0; i < messageCount; i++) {
