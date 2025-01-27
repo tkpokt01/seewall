@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import MessageList from "./components/MessageList";
 
+
 //import retona16 from "./assets/retona16.png"; // Adjust the path as needed
 import "./styles.css";
 
