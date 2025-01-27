@@ -8,7 +8,7 @@ body, html {
 .background-image {
     background-image: url('assets/retona16.png');
     background-size: cover;
-    background-position: fixed;
+    background-position: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -16,15 +16,19 @@ body, html {
     z-index: -1;
 }
 
-
 .messages-box {
     background-color: rgba(255, 255, 255, 0.9);
-    margin: auto auto;
-    width: 60%;
-    max-height: 100vh;
+    margin: auto;
+    width: 60%; /* Default width for desktop */
+    max-height: 30vh;
     overflow-y: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Add some padding for better spacing */
+    position: absolute; /* Position the box absolutely */
+        top:  50%; /* Place the box 10% down from the top */
+        left: 35%; /* Center horizontally */
+
 }
 
 .messages-box h1 {
@@ -38,4 +42,47 @@ body, html {
 
 #messages div {
     margin-bottom: 10px;
+}
+
+/* Mobile background (applies for screens less than 768px wide) */
+@media (max-width: 767px) {
+    .background-image {
+        background-image: url('assets/retona16m.png');
+    }
+
+    /* Adjust the message box for mobile */
+    .messages-box {
+        width: 60%; /* Make the box wider on mobile */
+        height: 60vh;
+        padding: 1rem; /* Use relative units for padding */
+        position: absolute; /* Position the box absolutely */
+        top: 15%; /* Place the box 10% down from the top */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Adjust for centering */
+
+    }
+
+    .messages-box h1 {
+        font-size: 1.5rem; /* Reduce heading size for mobile */
+    }
+
+    #messages div {
+        font-size: 0.9rem; /* Reduce font size for messages on mobile */
+    }
+}
+
+/* Small mobile devices (up to 480px) */
+@media (max-width: 480px) {
+    .messages-box {
+        width: 75%;
+        padding: 0.5rem;
+    }
+
+    .messages-box h1 {
+        font-size: 1.25rem;
+    }
+
+    #messages div {
+        font-size: 0.8rem;
+    }
 }
