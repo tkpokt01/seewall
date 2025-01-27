@@ -8,6 +8,8 @@ body, html {
 .background-image {
     background-image: url('assets/retona16.png');
     background-size: cover;
+    background-position: center;
+
 }
 
 .messages-box {
