@@ -9,7 +9,10 @@ body, html {
     background-image: url('assets/retona16.png');
     background-size: cover;
     background-position: center;
-
+    top: 0;
+    left: 0;
+    
+    z-index: -1;
 }
 
 .messages-box {
