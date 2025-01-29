@@ -137,17 +137,18 @@ function App() {
     async function loadMessages(contract) {
         try {
             const messageCount = await contract.getMessageCount();
-            //alert("Message count:", messageCount);
             const loadedMessages = [];
-
-            //for (let i = 0; i < messageCount; i++) 
-            //for (let i = messageCount-1; i>=0; i--){
-            //    const [sender, content] = await contract.getMessage(i);
-            //    loadedMessages.push({ sender, content });
-            //}
+    
             for (let i = 0; i < messageCount; i++) {
                 const [sender, content] = await contract.getMessage(i);
-                loadedMessages.push({ sender, content });
+                
+                // Regular expression to detect URLs
+                const urlPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi;
+    
+                // Exclude messages containing URLs
+                if (!urlPattern.test(content)) {
+                    loadedMessages.push({ sender, content });
+                }
             }
             
             // Reverse the array to display newest first
